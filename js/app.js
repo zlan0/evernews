@@ -90,7 +90,7 @@ function defaultConfig() {
       { name: 'JoyOnline', url: 'https://www.myjoyonline.com/feed/', active: true },
       { name: 'GhanaWeb', url: 'https://www.ghanaweb.com/GhanaHomePage/rss/rss.xml', active: true },
       { name: 'Graphic Online', url: 'https://www.graphic.com.gh/feed', active: true },
-      { name: 'Pulse Ghana', url: 'https://www.pulse.com.gh/rss', active: false },
+      { name: 'Pulse Ghana', url: 'https://www.pulse.com.gh/rss', active: true },
     ],
     dbHost: 'localhost',
     dbPort: '5432',
@@ -320,7 +320,7 @@ function closeMobileMenu() {
 /* ── Ticker Builder ────────────────────────────────────────────────── */
 function buildTicker(items) {
   const cfg = getSiteConfig();
-  const speed = cfg.tickerSpeed || 18;
+  const speed = cfg.tickerSpeed || 1;
   const label = cfg.tickerLabel || 'Breaking';
   let tickerItems = cfg.breakingNews && cfg.breakingNews.length
     ? cfg.breakingNews.map((t, i) => ({ id: String(i), title: t }))
@@ -445,7 +445,7 @@ let _sidebarCounts = {};
 async function fetchSidebarCounts() {
   // Reuse the articles already loaded if available, otherwise hit the API
   // We fetch a large page to count categories client-side
-  const data = await apiFetch('/api/articles?category=all&limit=200&sort=recent');
+  const data = await apiFetch('/api/articles?category=all&limit=2000&sort=recent');
   if (!data?.articles) return;
 
   const counts = { all: data.articles.length };
