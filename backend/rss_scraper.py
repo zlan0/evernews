@@ -30,7 +30,7 @@ SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "")
 
 # Set to "true" to skip admin review and auto-publish all scraped articles
-AUTO_PUBLISH_SCRAPES = os.environ.get("AUTO_PUBLISH_SCRAPES", "false").lower() == "true"
+AUTO_PUBLISH_SCRAPES = os.environ.get("AUTO_PUBLISH_SCRAPES", "true").lower() == "true"
 
 # ─── RSS Feeds ────────────────────────────────────────────────────────────────
 
